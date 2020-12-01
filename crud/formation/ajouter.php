@@ -1,13 +1,13 @@
 <?php
     include_once '../../config/database.php';
-    if(isset($_GET['nomFormation']) && isset($_GET['ecole']) && isset($_GET['anneeDiplome']) && isset($_GET['descriptions']) && isset($_GET['utilisateur'])){
-        $sqlRe = "INSERT INTO formation(nomFormation, ecole, anneeDiplome, descriptions, utilisateur) VALUES(:NomFormation, :nomEcole, :dateAnneeDiplome, :textDescription, :nbreUtilisateur)";
+    if(isset($_POST['nomFormation']) && isset($_POST['ecole']) && isset($_POST['anneeDiplome']) && isset($_POST['description']) && isset($_POST['utilisateur'])){
+        $sqlRe = "INSERT INTO formation(nomFormation, ecole, anneeDiplome, description, utilisateur) VALUES(:NomFormation, :nomEcole, :dateAnneeDiplome, :textDescription, :nbreUtilisateur)";
         try{
             $req = $database->prepare($sqlRe);
-            $req->execute(array(nomFormation=>$_GET['nomFormation'], nomEcole=> $_GET['ecole'], dateAnneeDiplome=>$_GET['anneeDiplome'], textDescription=>$_GET['description'], nbreUtilisateur=>$_GET['utilisateur']));
-
+            $req->execute(array(NomFormation=>$_POST['nomFormation'], nomEcole=> $_POST['ecole'], dateAnneeDiplome=>$_POST['anneeDiplome'], textDescription=>$_POST['description'], nbreUtilisateur=>$_POST['utilisateur']));
+            
             echo "New record created successfully";
-            header("Location:../../about.php");
+            header("Location:.../../about.php");
         } catch(PDOException $e) {
             echo $sql . "<br>" . $e->getMessage();
         }
@@ -31,7 +31,7 @@
 	<body>
         <?php include '../../header.php'; ?>
 		<div class="form-container">
-			<form action="ajouter.php" method="get" name="formulaire">
+			<form action="ajouter.php" method="post" name="formulaire">
 				
 				<div class="container">
                     <div class="form-group">
@@ -44,7 +44,7 @@
                     </div>
                     <div class="form-group">
                         <label for="anneeDiplome"><b>Année d'obtention</b></label>
-                        <input class="form-control" id="anneeDiplome" type="Number" step="0.01" name="anneeDiplome" required>
+                        <input class="form-control" id="anneeDiplome" type="Number"  name="anneeDiplome" required>
                     </div>
                     <div class="form-group">
                         <label for="descriptions"><b>Description de la formation</b></label>
@@ -52,7 +52,7 @@
                     </div>
                     <div class="form-group">
                         <label for="utilisateur"><b>Nombre</b></label>
-                        <input class="form-control" id="utilisateur" type="Number" step="0.01" name="utilisateur" required>
+                        <input class="form-control" id="utilisateur" type="Number"  name="utilisateur" required>
                     </div>
 					<button type="submit" id="bouton-ajouter" class="btn btn-primary">Submit</button>
 				</div>

@@ -1,22 +1,22 @@
 <?php  
- $pass= "";
+//  $pass= "";
 
-$if ($_SERVEUR['REQUEST_METHOD']=="POST")
-{
+// $if ($_SERVEUR['REQUEST_METHOD']=="POST")
+// {
   
-  $pass = verifyInput($_POST["pass"]);
+//   $pass = verifyInput($_POST["pass"]);
   
 
-}
+// }
 
-function verifyInput($var)
-{
-    $var = trim($var);
-    $var = stripcslashes($var);
-    $var = htmlspecialchars($var);
+// function verifyInput($var)
+// {
+//     $var = trim($var);
+//     $var = stripcslashes($var);
+//     $var = htmlspecialchars($var);
 
-    return $var;
-}
+//     return $var;
+// }
 ?>
 
 <!DOCTYPE html>
@@ -83,8 +83,8 @@ if(!isset($_SESSION))
     </div>
 
     <!-- Login Form -->
-    <form action="<?php echo htmlspecialchars($_SERVEUR['PHP_SELF']);?> "   method="post">
-    
+    <!--form action="php echo htmlspecialchars($_SERVEUR['PHP_SELF']);?> "   method="post"> -->
+    <form action=""   method="post">
       <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
       <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="Log In">

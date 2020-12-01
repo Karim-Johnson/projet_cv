@@ -40,7 +40,7 @@ if ($reponse->rowCount() > 0) {
         </tr>
     <?php
     while($row = $reponse->fetch()) {
-        $lienSuppression ='href="crud/supprimer.php?id='.$row["id"];
+        $lienSuppression ='href="crud/formation/supprimer.php?id='.$row["id"];
         ?> 
     ?>
         <tr>
@@ -50,8 +50,8 @@ if ($reponse->rowCount() > 0) {
             <td><?php echo $row["anneeDiplome"]; ?></td>
             <td><?php echo $row["description"]; ?></td>
             <td><?php echo $row["utilisateur"]; ?></td>
-            <td><?php echo '<a class="btn btn-success" href="#" >modifier</a>'?></td>
-            <td><?php echo '<a class="btn btn-danger" href="crud/supprimer.php?id='.$row["id"].'">supprimer</a>'?></td>
+            <td><?php echo '<a class="btn btn-success" href="crud/formation/modifier.php?id='.$row["id"].'">modifier</a>'?></td>
+            <td><?php echo '<a class="btn btn-danger" href="crud/formation/supprimer.php?id='.$row["id"].'">supprimer</a>'?></td>
             
         </tr>
     <?php
@@ -65,7 +65,7 @@ else{
     echo "No result found";
 }
 ?>
-    <a class="btn btn-primary" id="bouton-ajouter" href="crud/ajouter.php">Ajouter une formation</a>
+    <a class="btn btn-primary" id="bouton-ajouter" href="crud/formation/ajouter.php">Ajouter une formation</a>
 </div>
 </body>
 

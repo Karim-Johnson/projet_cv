@@ -1,7 +1,7 @@
 <?php 
 
-// session_start();
-// $_SESSION["nom"]= "déconnexion";
+session_start();
+$_SESSION["nom"]= "déconnexion";
 
 ?>
   
@@ -28,7 +28,7 @@
           <li class="nav-item">
             <a class="nav-link" href="contact.php">Contact</a>
             <li class="nav-item">
-            <a class="nav-link" href="login.php"></a>
+            <a class="nav-link" href="login.php"><?php echo $_SESSION['nom']?></a>
           </li>
           </li>
         </ul>
