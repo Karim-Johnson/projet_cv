@@ -2,9 +2,9 @@
   <!-- Navigation -->
   <?php 
 
-session_start(); 
+// session_start(); 
 
-$_SESSION["login"]= "connexion";
+// $_SESSION["login"]= "connexion";
 
 ?>
   
@@ -32,7 +32,7 @@ $_SESSION["login"]= "connexion";
             <a class="nav-link" href="contact.php">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="cv.php"><?php echo $_SESSION['d'];?> </a>
+            <a class="nav-link" href="cv.php">Connexion </a>
           </li>
         </ul>
       </div>

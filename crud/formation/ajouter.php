@@ -4,10 +4,10 @@
         $sqlRe = "INSERT INTO formation(nomFormation, ecole, anneeDiplome, description, utilisateur) VALUES(:NomFormation, :nomEcole, :dateAnneeDiplome, :textDescription, :nbreUtilisateur)";
         try{
             $req = $database->prepare($sqlRe);
-            $req->execute(array(NomFormation=>$_POST['nomFormation'], nomEcole=> $_POST['ecole'], dateAnneeDiplome=>$_POST['anneeDiplome'], textDescription=>$_POST['description'], nbreUtilisateur=>$_POST['utilisateur']));
+            $req->execute(array(':NomFormation'=>$_POST['nomFormation'], ':nomEcole'=> $_POST['ecole'], ':dateAnneeDiplome'=>$_POST['anneeDiplome'], ':textDescription'=>$_POST['description'], ':nbreUtilisateur'=>$_POST['utilisateur']));
             
             echo "New record created successfully";
-            header("Location:.../../about.php");
+            header("Location:../../about.php");
         } catch(PDOException $e) {
             echo $sql . "<br>" . $e->getMessage();
         }
@@ -47,8 +47,8 @@
                         <input class="form-control" id="anneeDiplome" type="Number"  name="anneeDiplome" required>
                     </div>
                     <div class="form-group">
-                        <label for="descriptions"><b>Description de la formation</b></label>
-                        <input class="form-control" id="descriptions" type="text" name="descriptions" required>
+                        <label for="description"><b>Description de la formation</b></label>
+                        <input class="form-control" id="description" type="text" name="description" required>
                     </div>
                     <div class="form-group">
                         <label for="utilisateur"><b>Nombre</b></label>
