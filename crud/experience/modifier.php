@@ -6,26 +6,11 @@
             $req = $database->prepare($sqlRe);
             $req->execute(array(':identifiant' => $_GET['id']));
         } catch(PDOException $e) {
-            echo $sqlRe . "<br>" . $e->getMessage();
+            echo $sqlRE . "<br>" . $e->getMessage();
         }
       
      } 
-else{
-    if(isset($_POST['nomFormation']) && isset($_POST['ecole']) && isset($_POST['anneeDiplome']) && isset($_POST['description']) && isset($_POST['utilisateur'])){
-       
-        $sqlRe = "UPDATE  formation SET nomFormation= :nomFormation, ecole= :ecole,  anneeDiplome= :anneeDiplome,  description= :description, utilisateur= :utilisateur WHERE id= :id";
-        try{
-            $req = $database->prepare($sqlRe);
-            $req->execute(array(':nomFormation'=>$_POST['nomFormation'], ':ecole'=> $_POST['ecole'], ':anneeDiplome'=>$_POST['anneeDiplome'], ':description'=>$_POST['description'], ':utilisateur'=>$_POST['utilisateur'], ':id'=>$_POST['identifiant']));
-            
-            echo "New record created successfully";
-            header("Location:about.php");
-        } catch(PDOException $e) {
-            echo $sqlRe . "<br>" . $e->getMessage();
-        }
-    }
-}
-
+     
 
 ?>
 
@@ -48,20 +33,13 @@ else{
         <?php include '../../header.php'; ?>
 		<div class="form-container">
 
-			<form action="modifier.php" method="post" name="formulaire">
+			<form action="ajouter.php" method="get" name="formulaire">
 				<?php $row = $req->fetch();  ?>
-
-            
+                 
 				<div class="container">
-
-                <div class="form-group" hidden>    
-                        <label for="id"><b>id</b></label>
-                        <input class="form-control" id="nomFormation" type="text" name="nomFormation" value="<?php echo $row["nomFormation"]; ?>" required>
-                    </div>
-
                     <div class="form-group">    
-                        <label for="nomFormation"><b>identifiant</b></label>
-                        <input class="form-control" id="identifiant" type="Number" name="identifiant" value="<?php echo $row["id"]; ?>" required>
+                        <label for="nomFormation"><b>Nom de la formation</b></label>
+                        <input class="form-control" id="nomFormation" type="text" name="nomFormation" value="<?php echo $row["nomFormation"]; ?>" required>
                     </div>
                     <div class="form-group">
                             <label for="ecole"><b>Nom de l'ecole</b></label>
@@ -73,13 +51,13 @@ else{
                     </div>
                     <div class="form-group">
                         <label for="description"><b>Description de la formation</b></label>
-                        <input class="form-control" id="descriptions" type="text" name="description"  value="<?php echo $row["description"]; ?>"  required>
+                        <input class="form-control" id="description" type="text" name="description"  value="<?php echo $row["description"]; ?>"  required>
                     </div>
                     <div class="form-group">
                         <label for="utilisateur"><b>Nombre</b></label>
                         <input class="form-control" id="utilisateur" type="Number"  name="utilisateur" value="<?php echo  $row["utilisateur"]; ?>"  required>
                     </div>
-					<button type="submit" id="bouton-ajouter"  class="btn btn-primary">Submit</button>
+					<button type="submit" id="bouton-ajouter" class="btn btn-primary">Submit</button>
 				</div>
 			</form>
 		</div>
