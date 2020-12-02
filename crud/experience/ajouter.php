@@ -10,7 +10,7 @@
             textDescription=>$_GET['description'], nbreUtilisateur=>$_GET['utilisateur']));
 
             echo "New record created successfully";
-            header("Location:../about.php");
+            header("Location:about.php");
         } catch(PDOException $e) {
             echo $sql . "<br>" . $e->getMessage();
         }

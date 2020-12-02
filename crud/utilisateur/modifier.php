@@ -6,7 +6,7 @@
             $req = $database->prepare($sqlRe);
             $req->execute(array(':identifiant' => $_GET['id']));
         } catch(PDOException $e) {
-            echo $sqlRe . "<br>" . $e->getMessage();
+            echo $sql . "<br>" . $e->getMessage();
         }
       
      } 

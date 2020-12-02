@@ -8,7 +8,7 @@
             $req = $database->prepare($sqlRe);
             $req->execute(array(id=> $_GET['id']));
             echo " delete execute";
-            header("Location:../../about.php");
+            header("Location:about.php");
         } catch(PDOException $e) {
             echo $sql . "<br>" . $e->getMessage();
         }
