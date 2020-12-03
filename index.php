@@ -60,7 +60,91 @@
         </header>
         <!-- Portfolio Section-->
        
-        <?php include 'crud/formation/about.php'; ?>
+        <?php $reponse = $database->query("SELECT * FROM formation"); ?>
+
+        <section class="page-section portfolio" id="portfolio">
+                <div class="container">
+                    <!-- Portfolio Section Heading-->
+                    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Mes formations</h2>
+                    <!-- Icon Divider-->
+                    <div class="divider-custom">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <!-- Portfolio Grid Items-->
+                    <div class="row justify-content-center">
+                    <?php 
+                        while($row = $reponse->fetch()) {
+                            echo'<a href= "crud/formation/detail.php?id='.$row["id"].'" class="col-md-6 col-lg-4 mb-5">
+                                <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                                    </div>
+                                    <img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="" />
+                                    <div>'.$row["nomFormation"].'</div>
+                                </div>';
+                        }
+
+                        $reponse->closeCursor();
+                    ?>
+                    </div>
+                </div>
+        </section>
+        <div  class = " boutonAjouter1"> 
+        <a class="btn btn-primary" id="bouton-ajouter" href="crud/formation/ajouter.php">Ajouter une formation</a></div>
+        <?php $reponse = $database->query("SELECT * FROM expérience"); ?>
+
+        <section class="page-section portfolio" id="portfolio">
+                <div class="container">
+                    <!-- Portfolio Section Heading-->
+                    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Mes expériences</h2>
+                    <!-- Icon Divider-->
+                    <div class="divider-custom">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <!-- Portfolio Grid Items-->
+                    <div class="row justify-content-center">
+                    <?php 
+                        while($row = $reponse->fetch()) {
+                            echo'<a href= "crud/formation/detail.php?id='.$row["id"].'" class="col-md-6 col-lg-4 mb-5">
+                                <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                                    </div>
+                                    <img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="" />
+                                    <div>'.$row["posteOccupe"].'</div>
+                                </div>';
+                        }
+
+                        $reponse->closeCursor();
+                    ?>
+                    </div>
+                </div>
+        </section>
+        <a class="btn btn-primary" id="bouton-ajouter" href="crud/formation/ajouter.php">Ajouter une Expérience</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -203,7 +287,7 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <a class="btn btn-danger" href="crud/formation/about.php"> MES FORMATIONS </a> 
+                                    <a class="btn btn-danger" href="crud/formation/liste.php"> MES FORMATIONS </a> 
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                     <button class="btn btn-primary" data-dismiss="modal">
@@ -252,7 +336,7 @@
             </div>
         </div>
         <!-- Portfolio Modal 3-->
-        <a class="btn btn-danger" href="crud/formation/about.php" alt="Mes formations" >  </a>
+        <a class="btn btn-danger" href="crud/formation/liste.php" alt="Mes formations" >  </a>
             <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
                 <div class="modal-dialog modal-xl" role="document">
             

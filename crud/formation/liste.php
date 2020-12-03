@@ -26,7 +26,7 @@
 </head>
 
 <body>
-     
+    <?php include '../../header.php';?>  
         <section class="page-section portfolio" id="portfolio">
                 <div class="container">
                     <!-- Portfolio Section Heading-->
@@ -56,6 +56,7 @@
                     </div>
                 </div>
         </section>
+        <a class="btn btn-primary" id="bouton-ajouter" href="crud/formation/ajouter.php">Ajouter une Expérience</a>
 </body>
 
 </html>
