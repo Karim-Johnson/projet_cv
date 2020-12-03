@@ -19,7 +19,7 @@ else{
             $req->execute(array(':nomFormation'=>$_POST['nomFormation'], ':ecole'=> $_POST['ecole'], ':anneeDiplome'=>$_POST['anneeDiplome'], ':description'=>$_POST['description'], ':utilisateur'=>$_POST['utilisateur'], ':id'=>$_POST['identifiant']));
             
             echo "New record created successfully";
-            header("Location:about.php");
+            header("Location:liste.php");
         } catch(PDOException $e) {
             echo $sqlRe . "<br>" . $e->getMessage();
         }

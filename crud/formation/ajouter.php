@@ -1,17 +1,21 @@
 <?php
     include_once '../../config/database.php';
     if(isset($_POST['nomFormation']) && isset($_POST['ecole']) && isset($_POST['anneeDiplome']) && isset($_POST['description']) && isset($_POST['utilisateur'])){
-        $sqlRe = "INSERT INTO formation(nomFormation, ecole, anneeDiplome, description, utilisateur) VALUES(:NomFormation, :nomEcole, :dateAnneeDiplome, :textDescription, :nbreUtilisateur)";
+        $sqlRe = "INSERT INTO formation(nomFormation, ecole, anneeDiplome, description, utilisateur) VALUES(:nomFormation, :ecole, :anneeDiplome, :description, :utilisateur)";
         try{
             $req = $database->prepare($sqlRe);
-            $req->execute(array(':NomFormation'=>$_POST['nomFormation'], ':nomEcole'=> $_POST['ecole'], ':dateAnneeDiplome'=>$_POST['anneeDiplome'], ':textDescription'=>$_POST['description'], ':nbreUtilisateur'=>$_POST['utilisateur']));
+            $req->execute(array(':nomFormation'=>$_POST['nomFormation'], ':ecole'=> $_POST['ecole'], ':anneeDiplome'=>$_POST['anneeDiplome'], ':description'=>$_POST['description'], ':utilisateur'=>$_POST['utilisateur']));
             
             echo "New record created successfully";
-            header("Location:../../about.php");
+            header("Location:liste.php");
         } catch(PDOException $e) {
-            echo $sql . "<br>" . $e->getMessage();
+    echo $sql . "<br>" . $e->getMessage();
         }
 }
+
+
+// $result = mysqli_query( $con, $query );
+
 
 ?>
 <!DOCTYPE html>

@@ -1,5 +1,5 @@
 <?php
-    include_once 'config/database.php';
+    include_once '../../config/database.php';
     $reponse = $database->query("SELECT * FROM formation ORDER BY id DESC");
 ?>
 
@@ -23,7 +23,7 @@
 <body>
 <?php 
 
-include 'header.php';
+include '../../header.php';
 
 if ($reponse->rowCount() > 0) {    
 ?>
@@ -31,7 +31,7 @@ if ($reponse->rowCount() > 0) {
     <h1 id="entete-tableau"> Table de formations :</h1>
     <table>
         <tr>
-            <td>id</td>
+            <td idden>id</td>
             <td>nomFormation</td>
             <td>ecole</td>
             <td>anneeDiplome</td>
@@ -66,6 +66,12 @@ else{
 }
 ?>
     <a class="btn btn-primary" id="bouton-ajouter" href="crud/formation/ajouter.php">Ajouter une formation</a>
+
+    <form>
+        kkkkkkkkkkk
+        <label>ok</label>
+        kkkkkkk
+    </form>
 </div>
 </body>
 
