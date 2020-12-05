@@ -5,8 +5,6 @@
     $username='root';
     $password='';
     $dbName='moncv';
-
-
     try{
         $database=new PDO('mysql:host='.$url.';dbname='.$dbName.';charset=utf8',$username,$password);
         $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
