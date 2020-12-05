@@ -1,7 +1,7 @@
 <?php
     include_once '../../config/database.php';
      if(isset($_GET['id'])){
-         $sqlRe = 'SELECT * FROM formation WHERE id =:identifiant';
+         $sqlRe = 'SELECT * FROM formation WHERE id= :identifiant';
         try{
             $req = $database->prepare($sqlRe);
             $req->execute(array(':identifiant' => $_GET['id']));
@@ -13,7 +13,7 @@
 else{
     if(isset($_POST['nomFormation']) && isset($_POST['ecole']) && isset($_POST['anneeDiplome']) && isset($_POST['description']) && isset($_POST['utilisateur'])){
        
-        $sqlRe = "UPDATE  formation SET nomFormation= :nomFormation, ecole= :ecole,  anneeDiplome= :anneeDiplome,  description= :description, utilisateur= :utilisateur WHERE id= :id";
+        $sqlRe = "UPDATE  formation SET nomFormation= :nomFormation, ecole= :ecole,  anneeDiplome= :anneeDiplome,  description= :description, utilisateur= :utilisateur WHERE id= :identifiant";
         try{
             $req = $database->prepare($sqlRe);
             $req->execute(array(':nomFormation'=>$_POST['nomFormation'], ':ecole'=> $_POST['ecole'], ':anneeDiplome'=>$_POST['anneeDiplome'], ':description'=>$_POST['description'], ':utilisateur'=>$_POST['utilisateur'], ':id'=>$_POST['identifiant']));
@@ -49,7 +49,7 @@ else{
 		<div class="form-container">
 
 			<form action="modifier.php" method="post" name="formulaire">
-				<?php $row = $req->fetch();  ?>
+				<?php $row =$req->fetch();  ?>
 
             
 				<div class="container">
@@ -61,7 +61,7 @@ else{
 
                     <div class="form-group">    
                         <label for="nomFormation"><b>identifiant</b></label>
-                        <input class="form-control" id="identifiant" type="Number" name="identifiant" value="<?php echo $row["id"]; ?>" required>
+                        <input class="form-control" id="identifiant" type="Number" name="identifiant" value="<?php echo $row["identifiant"]; ?>" required>
                     </div>
                     <div class="form-group">
                             <label for="ecole"><b>Nom de l'ecole</b></label>
