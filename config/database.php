@@ -10,7 +10,7 @@
         $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
     catch(Exception $e){
-        die('Could not Connect My Sql because:' . $e ->getMessage());
+        die('Could not Connect My Sql because error:' . $e ->getMessage());
     }
 ?>
 
