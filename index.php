@@ -76,7 +76,7 @@
                     </div>
                 </div>
         </section>
-        
+         
         <div class="boutonAjouter1"> 
             <a class="btn btn-primary" id="bouton-ajouter" href="crud/formation/ajouter.php" style="opacity: <?= isset($_SESSION['email']) ? '1':'0' ?>;">Ajouter une formation</a>
         </div>
