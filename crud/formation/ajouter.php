@@ -1,5 +1,8 @@
 <?php
     include_once '../../config/database.php';
+    
+    session_start();
+
     if(isset($_POST['nomFormation']) && isset($_POST['ecole']) && isset($_POST['anneeDiplome']) && isset($_POST['description']) && isset($_POST['utilisateur'])){
         $sqlRe = "INSERT INTO formation(nomFormation, ecole, anneeDiplome, description, utilisateur) VALUES(:nomFormation, :ecole, :anneeDiplome, :description, :utilisateur)";
         try{

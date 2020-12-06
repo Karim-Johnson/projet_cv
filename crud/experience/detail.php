@@ -44,9 +44,15 @@ function checkInput($data)
 
     <title>Modifier une formation</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../../style/bootstrap.min.css" rel="stylesheet">
-    <link href="../../style/main.css" rel="stylesheet">
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+  <!-- Bootstrap core CSS -->
+  <link href="../../style/bootstrap.min.css" rel="stylesheet">
+  <link href="../../style/main.css" rel="stylesheet">
+  <link href="../../css/styles.css" rel="stylesheet" />
     </head>
 	<body>
         <?php include '../../header.php'; 
@@ -86,6 +92,8 @@ function checkInput($data)
 
                         </div>     
                 <form> 
+
+                <?php include("../../_footer.php"); ?>
      </body>
 
  <html>

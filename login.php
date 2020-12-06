@@ -98,6 +98,7 @@ if(isset($_POST['submit'])){
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.slim.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <?php include("_footer.php"); ?>
 </body>
 
 </html>

@@ -1,93 +1,100 @@
 <?php
-    include_once '../../config/database.php';
-     if(isset($_GET['id'])){
-         $sqlRe = 'SELECT * FROM formation WHERE id= :identifiant';
-        try{
-            $req = $database->prepare($sqlRe);
-            $req->execute(array(':identifiant' => $_GET['id']));
-        } catch(PDOException $e) {
-            echo $sqlRe . "<br>" . $e->getMessage();
-        }
+     include_once '../../config/database.php';
+    //  if(isset($_GET['id'])){
+    //      $sqlRe = 'SELECT * FROM experience WHERE id= :?';
+    //     try{
+    //         $req = $database->prepare($sqlRe);
+    //         $req->execute(array(':?' => $_GET['id']));
+    //     } catch(PDOException $e) {
+    //         echo $sqlRe . "<br>" . $e->getMessage();
+    //     }
       
-     } 
-else{
-    if(isset($_POST['nomFormation']) && isset($_POST['ecole']) && isset($_POST['anneeDiplome']) && isset($_POST['description']) && isset($_POST['utilisateur'])){
-       
-        $sqlRe = "UPDATE  formation SET nomFormation= :nomFormation, ecole= :ecole,  anneeDiplome= :anneeDiplome,  description= :description, utilisateur= :utilisateur WHERE id= :identifiant";
-        try{
-            $req = $database->prepare($sqlRe);
-            $req->execute(array(':nomFormation'=>$_POST['nomFormation'], ':ecole'=> $_POST['ecole'], ':anneeDiplome'=>$_POST['anneeDiplome'], ':description'=>$_POST['description'], ':utilisateur'=>$_POST['utilisateur'], ':id'=>$_POST['identifiant']));
-            
-            echo "New record created successfully";
-            header("Location:liste.php");
-        } catch(PDOException $e) {
-            echo $sqlRe . "<br>" . $e->getMessage();
-        }
-    }
+    //  } 
+    
+
+if (!empty($_GET['id']));
+{
+    $id = checkInput(($_GET['id']));
 }
 
+$sqlRe = "SELECT * FROM formation WHERE id = ?";
+$req = $database->prepare($sqlRe);
+$req->execute(array($id));
+$row =$req->fetch();
+
+function checkInput($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars_decode($data);
+    return $data;
+}
 
 ?>
+
 
 
 <!DOCTYPE html>
 <html>
     <head>
     <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <title>Modifier une formation</title>
+    <title>Modifier une formation</title>
 
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
   <!-- Bootstrap core CSS -->
   <link href="../../style/bootstrap.min.css" rel="stylesheet">
   <link href="../../style/main.css" rel="stylesheet">
+  <link href="../../css/styles.css" rel="stylesheet" />
     </head>
 	<body>
-        <?php include '../../header.php'; ?>
-		<div class="form-container">
-
-			<form action="modifier.php" method="post" name="formulaire">
-				<?php $row =$req->fetch();  ?>
-
+        <?php include '../../header.php'; 
+        
+     
+        
+        ?>
+	
             
-				<div class="container">
+			<div class="container mt-5">
 
-                <div class="form-group"   hidden>    
-                        <label for="nomFormation"><b>identifiant</b></label>
-                        <input class="form-control" id="identifiant" type="Number" name="identifiant" value="<?php echo $row["identifiant"]; ?>" required>
-                    </div>
+                <form> 
+                        <div class="form-group" >    
+                            <label>Nom de la formation: </label> <?php echo '  ' .$row["nomFormation"]; ?>
+                
+                        </div>
+                        <div class="form-group" >    
+                            <label>Nom de l'école: </label> <?php echo '  ' .$row["ecole"]; ?>
+                
+                        </div>
+                        <div class="form-group" >    
+                            <label>Année d'obtention du diplôme: </label> <?php echo '  ' .$row["anneeDiplome"]; ?>
+                
+                        </div>
+                        <div class="form-group" >    
+                            <label>Description de la formation: </label> <?php echo '  ' .$row["description"]; ?>
+                
+                        </div>
+                        <div class="form-group" >    
+                            <label>Utilisateur: </label> <?php echo '  ' .$row["utilisateur"]; ?>
+                
+                        </div>
+                        
+                
+                <form> 
+            </div>     
+               
 
-                <div class="form-group" hidden>    
-                        <label for="id"><b>Nom de la formation</b></label>
-                        <input class="form-control" id="nomFormation" type="text" name="nomFormation" value="<?php echo $row["nomFormation"]; ?>" required>
-                    </div>
+                <?php include("../../_footer.php"); ?>
+     </body>
 
-                    
-                    <div class="form-group">
-                            <label for="ecole"><b>Nom de l'ecole</b></label>
-                            <input class="form-control" id="ecole" type="text" name="ecole" value="<?php echo $row["ecole"]; ?>" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="anneeDiplome"><b>Année d'obtention</b></label>
-                        <input class="form-control" id="anneeDiplome" type="Number"  name="anneeDiplome" value="<?php echo $row["anneeDiplome"]; ?>" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="description"><b>Description de la formation</b></label>
-                        <input class="form-control" id="descriptions" type="text" name="description"  value="<?php echo $row["description"]; ?>"  required>
-                    </div>
-                    <div class="form-group">
-                        <label for="utilisateur"><b>Nombre</b></label>
-                        <input class="form-control" id="utilisateur" type="Number"  name="utilisateur" value="<?php echo  $row["utilisateur"]; ?>"  required>
-                    </div>
-					<!-- <button type="submit" id="bouton-ajouter"  class="btn btn-primary">Submit</button> -->
-				</div>
-			</form>
-		</div>
-	</body>
-</html>
-
-
+ <html>
+               
 
 
