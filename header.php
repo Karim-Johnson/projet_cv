@@ -15,20 +15,20 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="home.php">Home
+            <a class="nav-link" href="../../index.php">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.php">About</a>
+            <a class="nav-link" href="../../index.php">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
+            <a class="nav-link" href="../../index.php">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.php">Contact</a>
+            <a class="nav-link" href="#contact">Contact</a>
             <li class="nav-item">
-            <a class="nav-link" href="login.php">Connexion</a>
+            <a class="nav-link" href="../../login.php">Connexion</a>
           </li>
           </li>
         </ul>

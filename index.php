@@ -67,7 +67,7 @@
                                         <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                                     </div>
                                     <img class="img-fluid" src="assets/img/portfolio/forma.png" alt="" />
-                                    <div>'.$row["nomFormation"].'</div>
+                                    <div class= "taille_formation">'.$row["nomFormation"].'</div>
                                 </div>';
                         }
 
@@ -79,46 +79,41 @@
             <a class="btn btn-primary" id="bouton-ajouter" href="crud/formation/ajouter.php" style="opacity: <?= isset($_SESSION['email']) ? '1':'0' ?>;">Ajouter une formation</a>
         </div>
         </section>
-         
-        
-       
-       
-        
-
-        <!-- About Section-->
+           <!-- About Section-->
         <section class="page-section bg-primary1 text-white mb-0" id="about">
         <?php $reponse = $database->query("SELECT * FROM experience"); ?>
 
-<section class="page-section portfolio" id="portfolio">
-        <div class="container">
-            <!-- Portfolio Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Mes expériences</h2>
-            <!-- Icon Divider-->
-            <div class="divider-custom">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
-            </div>
-            <!-- Portfolio Grid Items-->
-            <div class="row justify-content-center">
-            <?php 
-                while($row = $reponse->fetch()) {
-                    echo'<a href= "crud/experience/detail.php?id='.$row["id"].'" class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/exp.png" alt="" />
-                            <div>'.$row["posteOccupe"].'</div>
-                        </div>';
-                }
+        <section class="page-section portfolio" id="portfolio">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Mes expériences</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Grid Items-->
+                <div class="row justify-content-center">
+                <?php 
+                    while($row = $reponse->fetch()) {
+                        echo'<a href= "crud/experience/detail.php?id='.$row["id"].'" class="col-md-6 col-lg-4 mb-5">
+                            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                    <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/exp.png" alt="" />
+                                <div class= "taille_formation">'.$row["posteOccupe"].'</div>
+                            </div>';
+                    }
 
-                $reponse->closeCursor();
-            ?>
+                    $reponse->closeCursor();
+                ?>
+                </div>                    
             </div>
-        </div>
-        <a class="btn btn-primary" id="bouton-ajouter" href="crud/experience/ajouter.php">Ajouter une Expérience</a>
-</section>
+            <!-- le bouton apparait lorrsque un visiteur est connecté il disparait lorsqu'il est déconnecté -->
+            <a class="btn btn-primary" id="bouton-ajouter" href="crud/experience/ajouter.php"  style="opacity: <?= isset($_SESSION['email']) ? '1':'0' ?>;">Ajouter une Expérience</a>  
+        </section>
 
 
 
@@ -166,7 +161,7 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Contact Section Form-->
-                <div class="row">
+                <div class="new">
                     <div class="col-lg-8 mx-auto">
                         <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
                         <form id="contactForm" name="sentMessage" novalidate="novalidate">
@@ -207,6 +202,30 @@
             </div>
         </section>
         
+        <?php
+            if(isset($_POST) && !empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['phone']) && !empty($_POST['message'])){
+
+                extract($_POST);
+                $destinataire = "kouekamjohnson@gmail.com"
+                $expediteur = $name.'<'.$email.'>';
+                $mail = mail($destinataire, $name, $message, $expediteur ': nomexpediteur: Mail de test');
+                if($mail) echo'Email envoyé avec succès!'; else 'echec d envoie de Mail';
+            }else{
+                echo "formulaire non soumi ou des champs sont vides";
+            }
+
+       ?>
+
+
+
+
+
+
+
+
+
+
+
                   <!-- footer  -->
         <?php include("_footer.php"); ?>
                    <!-- footer  -->
