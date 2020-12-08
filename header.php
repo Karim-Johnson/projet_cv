@@ -26,7 +26,7 @@
             <a class="nav-link" href="../../index.php">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
+            <a class="nav-link" href="../../contact.php">Contact</a>
             <li class="nav-item">
             <a class="nav-link" href="../../login.php">Connexion</a>
           </li>

@@ -85,8 +85,7 @@ function checkInput($data)
                             <label>Utilisateur: </label> <?php echo '  ' .$row["utilisateur"]; ?>
                 
                         </div>
-                        
-                
+        
                 <form> 
             </div>     
                

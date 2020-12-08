@@ -19,7 +19,7 @@ else{
             $req->execute(array(':nomFormation'=>$_POST['nomFormation'], ':ecole'=> $_POST['ecole'], ':anneeDiplome'=>$_POST['anneeDiplome'], ':description'=>$_POST['description'], ':utilisateur'=>$_POST['utilisateur'], ':id'=>$_POST['identifiant']));
             
             echo "New record created successfully";
-            header("Location:liste.php");
+            header("Location:about.php");
         } catch(PDOException $e) {
             echo $sqlRe . "<br>" . $e->getMessage();
         }
@@ -55,13 +55,13 @@ else{
 				<div class="container">
 
                 <div class="form-group" hidden>    
-                        <label for="id"><b>id</b></label>
-                        <input class="form-control" id="nomFormation" type="text" name="nomFormation" value="<?php echo $row["nomFormation"]; ?>" required>
+                        <label for="id"><b>identifiant</b></label>
+                        <input class="form-control" id="identifiant" type="number" name="identifiant" value="<?php echo $row["nomFormation"]; ?>" required>
                     </div>
 
                     <div class="form-group">    
-                        <label for="nomFormation"><b>identifiant</b></label>
-                        <input class="form-control" id="identifiant" type="Number" name="identifiant" value="<?php echo $row["identifiant"]; ?>" required>
+                        <label for="nomFormation"><b>Nom de la formation</b></label>
+                        <input class="form-control" id="nomFormation" type="text" name="nomFormation" value="<?php echo $row["nomFormation"]; ?>" required>
                     </div>
                     <div class="form-group">
                             <label for="ecole"><b>Nom de l'ecole</b></label>

@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Bare - Start Bootstrap Template</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="style/bootstrap.min.css" rel="stylesheet">
-  <link href="style/main.css" rel="stylesheet">
-
-</head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Devéloppeur Web</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
 
 <body>
 
@@ -74,16 +76,16 @@
         </section>
     
   <?php
-  if(isset($_POST) && !empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['phone']) && !empty($_POST['message'])){
+  // if(isset($_POST) && !empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['phone']) && !empty($_POST['message'])){
 
-    extract($_POST);
-    $destinataire = "kouekamjohnson@gmail.com"
-    $expediteur = $name.'<'.$email.'>';
-    $mail = mail($destinataire, $name, $message, $expediteur ': nomexpediteur: Mail de test');
-    if($mail) echo'Email envoyé avec succès!'; else 'echec d envoie de Mail';
-  }else{
-    echo "formulaire non soumi ou des champs sont vides";
-  }
+  //   extract($_POST);
+  //   $destinataire = "kouekamjohnson@gmail.com"
+  //   $expediteur = $name.'<'.$email.'>';
+  //   $mail = mail($destinataire, $name, $message, $expediteur ': nomexpediteur: Mail de test');
+  //   if($mail) echo'Email envoyé avec succès!'; else 'echec d envoie de Mail';
+  // }else{
+  //   echo "formulaire non soumi ou des champs sont vides";
+  // }
    
 
 

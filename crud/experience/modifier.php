@@ -33,7 +33,7 @@
         <?php include '../../header.php'; ?>
 		<div class="form-container">
 
-			<form action="ajouter.php" method="get" name="formulaire">
+			<form action="../../index.php" method="get" name="formulaire">
 				<?php $row = $req->fetch();  ?>
                  
 				<div class="container">
