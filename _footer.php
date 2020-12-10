@@ -10,9 +10,10 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Location</h4>
                         <p class="lead mb-0">
-                            28 AV du Général Leclerc
+                            28 Avenue du Général Leclerc
                             <br />
-                            Boissy Saint-Leger, 94470
+                            Boissy Saint-Leger, 94470<br />
+                            +33(0)612049598
                         </p>
                     </div>
                     <!-- Footer Social Icons-->

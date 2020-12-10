@@ -4,13 +4,13 @@
     session_start();
 
     if(isset($_POST['posteOccupe']) && isset($_POST['nomEntreprise']) && isset($_POST['dateDebut']) && isset($_POST['dateDefin']) && isset($_POST['descriptionPoste']) && isset($_POST['utilisateur'])){
-        $sqlRe = "INSERT INTO formation(posteOccupe, nomEntreprise, dateDebut, dateDefin, descriptionPoste, utilisateur) VALUES(:posteOccupe, :nomEntreprise, :dateDebut, :dateDefin, :descriptionPoste, :utilisateur)";
+        $sqlRe = "INSERT INTO experience(posteOccupe, nomEntreprise, dateDebut, dateDefin, descriptionPoste, utilisateur) VALUES(:posteOccupe, :nomEntreprise, :dateDebut, :dateDefin, :descriptionPoste, :utilisateur)";
         try{
             $req = $database->prepare($sqlRe);
             $req->execute(array(':posteOccupe'=>$_POST['posteOccupe'], ':nomEntreprise'=>$_POST['nomEntreprise'], ':dateDebut'=> $_POST['dateDebut'], ':dateDefin'=> $_POST['dateDefin'], ':descriptionPoste'=>$_POST['descriptionPoste'], ':utilisateur'=>$_POST['utilisateur']));
             
             echo "New record created successfully";
-            header("Location:liste.php");
+            header("Location:../../index.php");
         } catch(PDOException $e) {
     echo $sql . "<br>" . $e->getMessage();
         }
@@ -51,11 +51,11 @@
                     </div>
                     <div class="form-group">
                         <label for="dateDebut"><b>Date de début</b></label>
-                        <input class="form-control" id="dateDebut" type="Number"  name="dateDebut" required>
+                        <input class="form-control" id="dateDebut" type="date"  name="dateDebut" required>
                     </div>
                     <div class="form-group">
                         <label for="dateDefin"><b>Date de fin</b></label>
-                        <input class="form-control" id="dateDefin" type="Number"  name="dateDefin" required>
+                        <input class="form-control" id="dateDefin" type="date"  name="dateDefin" required>
                     </div>
                     <div class="form-group">
                         <label for="descriptionPoste"><b>Description du poste</b></label>

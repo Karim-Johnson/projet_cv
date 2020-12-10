@@ -10,7 +10,7 @@
             $req->execute(array(':nomFormation'=>$_POST['nomFormation'], ':ecole'=> $_POST['ecole'], ':anneeDiplome'=>$_POST['anneeDiplome'], ':description'=>$_POST['description'], ':utilisateur'=>$_POST['utilisateur']));
             
             echo "New record created successfully";
-            header("Location:liste.php");
+            header("Location:../../index.php");
         } catch(PDOException $e) {
     echo $sql . "<br>" . $e->getMessage();
         }

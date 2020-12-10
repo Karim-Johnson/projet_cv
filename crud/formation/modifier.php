@@ -11,19 +11,20 @@
       
      } 
 else{
-    if(isset($_POST['nomFormation']) && isset($_POST['ecole']) && isset($_POST['anneeDiplome']) && isset($_POST['description']) && isset($_POST['utilisateur'])){
+    if(isset($_POST['identifiant']) && isset($_POST['nomFormation']) && isset($_POST['ecole']) && isset($_POST['anneeDiplome']) && isset($_POST['description']) && isset($_POST['utilisateur'])){
        
-        $sqlRe = "UPDATE  formation SET nomFormation= :nomFormation, ecole= :ecole,  anneeDiplome= :anneeDiplome,  description= :description, utilisateur= :utilisateur WHERE id= :identifiant";
+        $sqlRe = "UPDATE formation SET nomFormation=?, ecole=?, anneeDiplome=?, description=?, utilisateur=? WHERE id=?";
         try{
             $req = $database->prepare($sqlRe);
-            $req->execute(array(':nomFormation'=>$_POST['nomFormation'], ':ecole'=> $_POST['ecole'], ':anneeDiplome'=>$_POST['anneeDiplome'], ':description'=>$_POST['description'], ':utilisateur'=>$_POST['utilisateur'], ':id'=>$_POST['identifiant']));
+            $req->execute(array($_POST['nomFormation'], $_POST['ecole'], (int)$_POST['anneeDiplome'], $_POST['description'], (int)$_POST['utilisateur'], $_POST['identifiant']));
             
             echo "New record created successfully";
-            header("Location:about.php");
+            header("Location:../../index.php");
         } catch(PDOException $e) {
             echo $sqlRe . "<br>" . $e->getMessage();
         }
     }
+        
 }
 
 
@@ -54,10 +55,7 @@ else{
             
 				<div class="container">
 
-                <div class="form-group" hidden>    
-                        <label for="id"><b>identifiant</b></label>
-                        <input class="form-control" id="identifiant" type="number" name="identifiant" value="<?php echo $row["nomFormation"]; ?>" required>
-                    </div>
+               
 
                     <div class="form-group">    
                         <label for="nomFormation"><b>Nom de la formation</b></label>
@@ -69,7 +67,7 @@ else{
                     </div>
                     <div class="form-group">
                         <label for="anneeDiplome"><b>Année d'obtention</b></label>
-                        <input class="form-control" id="anneeDiplome" type="Number"  name="anneeDiplome" value="<?php echo $row["anneeDiplome"]; ?>" required>
+                        <input class="form-control" id="anneeDiplome" type="number"  name="anneeDiplome" value="<?php echo $row["anneeDiplome"]; ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="description"><b>Description de la formation</b></label>
@@ -77,9 +75,11 @@ else{
                     </div>
                     <div class="form-group">
                         <label for="utilisateur"><b>Nombre</b></label>
-                        <input class="form-control" id="utilisateur" type="Number"  name="utilisateur" value="<?php echo  $row["utilisateur"]; ?>"  required>
+                        <input class="form-control" id="utilisateur" type="number"  name="utilisateur" value="<?php echo  $row["utilisateur"]; ?>"  required>
                     </div>
-					<button type="submit" id="bouton-ajouter"  class="btn btn-primary">Submit</button>
+                    <input type="hidden" name="identifiant" value="<?php echo $row["id"]; ?>" required>
+                
+					<button type="submit" id="bouton-ajouter" class="btn btn-primary">Envoyer</button>
 				</div>
 			</form>
 		</div>

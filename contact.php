@@ -20,7 +20,7 @@
 <body>
 
 
-<?php include 'header.php'; ?>
+
   <!-- Page Content -->
   
   <section class="page-section" id="contact">
@@ -68,7 +68,7 @@
                             </div>
                             <br />
                             <div id="success"></div>
-                            <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Send</button></div>
+                            <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Envoyer</button></div>
                         </form>
                     </div>
                 </div>

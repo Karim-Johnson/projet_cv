@@ -1,6 +1,6 @@
 <?php
     include_once '../../config/database.php';
-    $reponse = $database->query("SELECT * FROM formation ORDER BY id DESC");
+    $reponse = $database->query("SELECT * FROM experience ORDER BY id DESC");
 ?>
 
 <!DOCTYPE html>
@@ -28,30 +28,32 @@ include '../../header.php';
 if ($reponse->rowCount() > 0) {    
 ?>
 <div class="container">
-    <h1 id="entete-tableau"> Table de formations :</h1>
+    <h1 id="entete-tableau"> Table des expériences :</h1>
     <table>
         <tr>
             <td idden>id</td>
-            <td>nomFormation</td>
-            <td>ecole</td>
-            <td>anneeDiplome</td>
-            <td>descriptions</td>
+            <td>posteOccupe</td>
+            <td>nomEntreprise</td>
+            <td>dateDebut</td>
+            <td>dateDefin</td>
+            <td>descriptionPoste</td>
             <td>utilisateur</td>
         </tr>
     <?php
     while($row = $reponse->fetch()) {
-        $lienSuppression ='href="crud/formation/supprimer.php?id='.$row["id"];
+        $lienSuppression ='href="supprimer.php?id='.$row["id"];
         ?> 
     
         <tr>
             <td><?php echo $row["id"]; ?></td>
-            <td><?php echo $row["nomFormation"]; ?></td>
-            <td><?php echo $row["ecole"]; ?></td>
-            <td><?php echo $row["anneeDiplome"]; ?></td>
-            <td><?php echo $row["description"]; ?></td>
+            <td><?php echo $row["posteOccupe"]; ?></td>
+            <td><?php echo $row["nomEntreprise"]; ?></td>
+            <td><?php echo $row["dateDebut"]; ?></td>
+            <td><?php echo $row["dateDefin"]; ?></td>
+            <td><?php echo $row["descriptionPoste"]; ?></td>
             <td><?php echo $row["utilisateur"]; ?></td>
-            <td><?php echo '<a class="btn btn-success" href="crud/formation/modifier.php?id='.$row["id"].'">modifier</a>'?></td>
-            <td><?php echo '<a class="btn btn-danger" href="crud/formation/supprimer.php?id='.$row["id"].'">supprimer</a>'?></td>
+            <td><?php echo '<a class="btn btn-success" href="modifier.php?id='.$row["id"].'">modifier</a>'?></td>
+            <td><?php echo '<a class="btn btn-danger" href="supprimer.php?id='.$row["id"].'">supprimer</a>'?></td>
             
         </tr>
     <?php
@@ -65,7 +67,7 @@ else{
     echo "No result found";
 }
 ?>
-    <a class="btn btn-primary" id="bouton-ajouter" href="crud/formation/ajouter.php">Ajouter une formation</a>
+    
 
     
 </div>

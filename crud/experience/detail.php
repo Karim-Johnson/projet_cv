@@ -91,8 +91,6 @@ function checkInput($data)
                         </div>
 
                     </div>  
-                    <?php echo '<a class="btn btn-success" href="crud/formation/modifier.php?id='.$row["id"].'">modifier</a>'?></br></br>
-                    <?php echo '<a class="btn btn-danger" href="crud/formation/supprimer.php?id='.$row["id"].'">supprimer</a>'?> 
                    
                 <form> 
 
