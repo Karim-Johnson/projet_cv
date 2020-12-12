@@ -1,10 +1,10 @@
 # Création d'un site Web dynamique
-### Prérequis techniques
+## Prérequis techniques
 
 -bootstrap3
 -Mysql
 
-### Fonctionnalités implémentées
+## Fonctionnalités implémentées
 
 -page de connexion qui après soumission du formulaire s’il existe un utilisateur en BDD qui a les identifiants rentrés, alors
 
@@ -27,11 +27,11 @@ Au clic sur « déconnexion » l’inverse se produit et on efface le login de
 -La parge permettant de modifier ou de supprimer une fomation
 -La parge permettant de modifier ou de supprimer une expérience
 
-#### Le bloc présentation
+### Le bloc présentation
 Contient ma photo et ce qui me caractérise 
 #### Le bloc formations
 Contient toute les formations se trouvant dans la BD et au clic sur une formation, on est dirigé vers une modale qui présente les détails de la formation.
-#### Le bloc expériences
+### Le bloc expériences
 Contient toute les formations se trouvant dans la BD et au clic sur une formation, on est dirigé vers une modale qui présente les détails de la formation.
-#### Le bloc formulaire de contact
+### Le bloc formulaire de contact
 contient un formulaire permettant de me contacter pour un service.
