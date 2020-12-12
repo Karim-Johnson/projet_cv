@@ -34,4 +34,4 @@ Contient toute les formations se trouvant dans la BD et au clic sur une formatio
 #### Le bloc expériences
 Contient toute les formations se trouvant dans la BD et au clic sur une formation, on est dirigé vers une modale qui présente les détails de la formation.
 #### Le bloc formulaire de contact
-contient un formulaire permettant de me contacter.
+contient un formulaire permettant de me contacter pour un service.
