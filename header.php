@@ -23,16 +23,17 @@
             <a class="nav-link" href="../../index.php">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.php">Formation</a>
+            <a class="nav-link" href="about.php" >Formations</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.php">Expérience</a>
+            <a class="nav-link" href="about.php">Expériences</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../../contact.php">Contact</a>
-            <li class="nav-item">
-            <a class="nav-link" href="../../login.php">Connexion</a>
-          </li>
+            </li>
+            <!-- <li class="nav-item">
+            <a class="nav-link"  href="login.php"><?= isset($_SESSION['email']) ? $_SESSION['email'] : "Connexion"; ?></a>
+          </li> -->
           </li>
         </ul>
       </div>

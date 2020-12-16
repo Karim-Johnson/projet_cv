@@ -28,6 +28,7 @@
   <!-- Bootstrap core CSS -->
   <link href="../style/bootstrap.min.css" rel="stylesheet">
   <link href="../style/main.css" rel="stylesheet">
+  <link href="../../css/styles.css" rel="stylesheet" />
     </head>
 	<body>
         <?php include '../header.php'; ?>

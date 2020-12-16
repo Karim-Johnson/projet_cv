@@ -53,11 +53,12 @@ function checkInput($data)
   <link href="../../style/bootstrap.min.css" rel="stylesheet">
   <link href="../../style/main.css" rel="stylesheet">
   <link href="../../css/styles.css" rel="stylesheet" />
+  <link href="../../formulaire.css" rel="stylesheet" />
     </head>
 	<body>
         <?php include '../../header.php'; 
         
-     
+        $lienSuppression ='href="supprimer.php?id='.$row["id"];
         
         ?>
 	
@@ -65,27 +66,31 @@ function checkInput($data)
 			<div class="container mt-5">
 
                 <form> 
+                    <!-- " &nbsp" permet de creer l'espace entre deux mots -->
+                    <div id="font">  
                         <div class="form-group" >    
-                            <label>Nom de la formation: </label> <?php echo '  ' .$row["nomFormation"]; ?>
+                            <label><strong>Nom de la formation: &nbsp &nbsp</strong></label> <?php echo '  ' .$row["nomFormation"]; ?>
                 
                         </div>
                         <div class="form-group" >    
-                            <label>Nom de l'école: </label> <?php echo '  ' .$row["ecole"]; ?>
+                            <label><strong>Nom de l'école: &nbsp &nbsp</strong></label> <?php echo '  ' .$row["ecole"]; ?>
                 
                         </div>
                         <div class="form-group" >    
-                            <label>Année d'obtention du diplôme: </label> <?php echo '  ' .$row["anneeDiplome"]; ?>
+                            <label><strong>Année d'obtention du diplôme: &nbsp &nbsp</strong></label> <?php echo '  ' .$row["anneeDiplome"]; ?>
                 
                         </div>
                         <div class="form-group" >    
-                            <label>Description de la formation: </label> <?php echo '  ' .$row["description"]; ?>
+                            <label><strong>Description de la formation: &nbsp &nbsp</strong></label> <?php echo '  ' .$row["description"]; ?>
                 
                         </div>
                         <div class="form-group" >    
-                            <label>Utilisateur: </label> <?php echo '  ' .$row["utilisateur"]; ?>
-                
+                            <label><strong>Utilisateur: &nbsp &nbsp</strong></label> <?php echo '  ' .$row["utilisateur"]; ?>
+                            
                         </div>
-        
+                    </div>
+                    <?php echo '<a class="btn btn-success" href="modifier.php?id='.$row["id"].'">modifier</a>'?> 
+                    <?php echo '<a class="btn btn-danger" href="supprimer.php?id='.$row["id"].'">supprimer</a>'?>
                 <form> 
             </div>     
                

@@ -40,7 +40,7 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Développeur Web: HTML5, CSS3, JAVASCRIPT, PHP</p>
+                <p class="masthead-subheading font-weight-light mb-0">Développeur Junior Web: HTML5, CSS3, JAVASCRIPT, PHP</p>
             </div>
         </header>
         <!-- Portfolio Section-->

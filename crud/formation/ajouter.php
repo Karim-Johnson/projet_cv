@@ -34,11 +34,14 @@
   <!-- Bootstrap core CSS -->
   <link href="../../style/bootstrap.min.css" rel="stylesheet">
   <link href="../../style/main.css" rel="stylesheet">
+  <link href="../../css/styles.css" rel="stylesheet" />
+  <link href="../../formulaire.css" rel="stylesheet" />
     </head>
 	<body>
         <?php include '../../header.php'; ?>
-		<div class="form-container">
-			<form action="ajouter.php" method="post" name="formulaire">
+		<div class="form-container ">
+           <div  id="formulaire"> 
+			<form   action="ajouter.php" method="post" name="formulaire">
 				
 				<div class="container">
                     <div class="form-group">
@@ -55,15 +58,16 @@
                     </div>
                     <div class="form-group">
                         <label for="description"><b>Description de la formation</b></label>
-                        <input class="form-control" id="description" type="text" name="description" required>
+                        <input class="form-control" id="description" type="text" name="description" required size="10" style="height:150px">
                     </div>
                     <div class="form-group">
                         <label for="utilisateur"><b>Nombre</b></label>
                         <input class="form-control" id="utilisateur" type="Number"  name="utilisateur" required>
                     </div>
-					<button type="submit" id="bouton-ajouter" class="btn btn-primary">Submit</button>
+					<button type="submit" id="bouton-ajouter" class="btn btn-primary">Envoyer</button>
 				</div>
-			</form>
+            </form>
+           </div>
 		</div>
 	</body>
 </html>
